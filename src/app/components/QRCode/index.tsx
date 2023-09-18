@@ -1,5 +1,5 @@
-import ReactQRCode from "react-qr-code";
-import { classNames, useTheme } from "~/app/utils";
+import { QRCode } from "react-qrcode-logo";
+import { useTheme } from "~/app/utils";
 
 export type Props = {
   value: string;
@@ -7,19 +7,24 @@ export type Props = {
   className?: string;
 };
 
-export default function QRCode({ value, size, className }: Props) {
+export default function QRCodeLogo({ value, size, className }: Props) {
   const theme = useTheme();
   const fgColor = theme === "dark" ? "#FFFFFF" : "#000000";
   const bgColor = theme === "dark" ? "#000000" : "#FFFFFF";
+  const logoLink = "assets/icons/alby_icon_yellow_64x64.png";
 
   return (
-    <ReactQRCode
+    <QRCode
       value={value}
-      size={size}
-      className={classNames("rounded-md", className ?? "")}
+      size={size || 280}
       fgColor={fgColor}
       bgColor={bgColor}
-      level="M"
+      ecLevel="M"
+      logoImage={logoLink}
+      logoPadding={0}
+      logoPaddingStyle={"circle"}
+      eyeColor={fgColor}
+      quietZone={0}
     />
   );
 }

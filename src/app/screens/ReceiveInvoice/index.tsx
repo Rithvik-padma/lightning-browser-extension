@@ -142,7 +142,7 @@ function ReceiveInvoice() {
     if (!invoice) return null;
     return (
       <>
-        <div className="mt-4 relative p-8 bg-white rounded-lg shadow-sm ring-1 ring-black ring-opacity-5 flex justify-center items-center overflow-hidden">
+        <div className="mt-4 relative p-8 bg-white dark:bg-black rounded-lg shadow-sm ring-1 ring-black ring-opacity-5 flex justify-center items-center overflow-hidden">
           <QRCode value={invoice.paymentRequest.toUpperCase()} />
           {paid && (
             <div className="absolute inset-0 flex justify-center items-center bg-white/90">
